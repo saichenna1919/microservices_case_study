@@ -1,0 +1,33 @@
+server:
+  port: 8081
+  
+ # for Eureka servier config  
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      
+spring:
+    application:
+      name: book-service 
+    autoconfig:
+      exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      
+    datasource:
+     url: jdbc:mysql://localhost:3306/db_library?currentSchema=default
+     username: root
+     password: Pass@hyd
+    jpa:
+     properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        connection:
+         charactorEncoding: UTF-8
+         charSet: UTF-8
+         useUnicode: true
+     show-sql: true
+     hibernate:
+      ddl-auto: none
+     
